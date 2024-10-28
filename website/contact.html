@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    body {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+}
+
+
+.contact-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 40px;
+    width: 60%;
+    max-width: 800px;
+    margin-left: 18%;
+    margin-top: 20px;
+}
+
+.contact-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.address {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.address p {
+    margin: 0;
+    color: #666;
+}
+
+.address a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.address a:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form {
+    flex: 1;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+button {
+    width: 105%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.image-container {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .form-container {
+        flex-direction: row;
+    }
+
+    .image-container {
+        display: block;
+        margin-left: 40px;
+    }
+
+    .image-container img {
+        max-width: 200px;
+    }
+}
+.responsive-img {
+    max-width: 200px;
+    height: 200px;
+    margin-right: 90%;
+    margin-top: -110px;
+    display: flex;
+    margin-bottom: -80px;
+   
+}
+section {
+    margin-bottom: 2rem;
+}
+header {
+    background:black;
+    color: #fff;
+    padding: 0.4rem;
+    text-align: right;
+}
+.nav {
+    margin-top: 25px;
+}
+
+
+.nav a {
+    padding: 10px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+</style>
+<body>
+    <header>
+        <section class="nav">
+            <a href="home.php"><i class="fas fa-home"></i> HOME</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> ABOUT US</a>
+            <a href="Course.php"><i class="fas fa-book"></i> COURSES</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> CONTACT</a>
+            <a href="Account.php"><i class="fas fa-user"></i> ACCOUNT</a>
+            <div class="search">
+                <img src="logo/logo2.png" alt="Welcome Image" class="responsive-img">
+            </div>
+        </section>
+    </header>
+    <div class="contact-form">
+        <h2>HAVE SOME QUESTIONS?</h2>
+        <div class="address">
+            <p><span class="flag-icon">🌐</span> MOLDOVA <a href="#">UK</a> : Strada 31 August 1989 78, Chisinau, MD-2012</p>
+        </div>
+        <div class="form-container">
+            <form action="contact.php" method="post">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="What's your email?" required>
+                <textarea name="message" placeholder="Your questions..." required></textarea>
+                <button type="submit">SEND MESSAGE</button>
+            </form>
+            <div class="image-container">
+                <img src="logo/mess.png" alt="Envelope Image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

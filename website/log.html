@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 400px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            overflow: hidden;
+            transition: height 0.3s ease-in-out;
+        }
+        .container .form-container {
+            position: relative;
+            width: 200%;
+            left: 0;
+            transition: left 0.3s ease-in-out;
+        }
+        .container form {
+            float: left;
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container form h2 {
+            margin: 10px 0 20px;
+            font-size: 24px;
+            color: #333;
+            margin-top: -60px;
+        }
+        .container form img {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+            margin-top: -110px;
+        }
+        .container form label {
+            display: block;
+            text-align: left;
+            font-size: 12px;
+            color: #333;
+            margin-left: 10px;
+        }
+        .container form input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .container form button {
+            width: 95%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #000;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .container form button:hover {
+            background: #333;
+        }
+        .toggle-button {
+            margin-top: 20px;
+            cursor: pointer;
+            color: orange;
+            font-size: 14px;
+        }
+        .toggle-button a{
+            margin-top: 20px;
+            cursor: pointer;
+            color: orange;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .password-container input {
+            flex: 1;
+        }
+        .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="form-container">
+        <div class="form-container">
+            <form id="login-form" action="login.php" method="POST">
+                <a href="home.php"><img src="logo/logo1.png" alt="logo"></a>
+                <h2>Login</h2>
+                <label for="login-username">Username</label>
+                <input id="login-username" name="username" type="text" placeholder="Username" required>
+                <label for="login-password">Password</label>
+                <div class="password-container">
+                    <input id="login-password" name="password" type="password" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password" onclick="togglePassword('login-password')"></i>
+                </div>
+                <button type="submit">Login</button>
+                <div class="toggle-button" onclick="toggleForms()">Don't have an account? Register</div>
+                <div class="toggle-button"><a href="forget.php">click here if you Forget Password</a></div>
+            </form>
+            
+            <form id="register-form" action="register.php" method="POST">
+                <img src="logo/logo.png" alt="logo">
+                <h2>Register</h2>
+                <label for="register-username">Username</label>
+                <input id="register-username" name="username" type="text" placeholder="Username" required>
+                <label for="register-email">Email</label>
+                <input id="register-email" name="email" type="email" placeholder="Email" required>
+                <label for="register-password">Password</label>
+                <div class="password-container">
+                    <input id="register-password" name="password" type="password" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password" onclick="togglePassword('register-password')"></i>
+                </div>
+                <label for="register-question1">Your Best Friend's Name</label>
+                <input id="register-question1" name="question1" type="text" placeholder="Your Best Friend's Name" required>
+                <label for="register-question2">Your Favorite Movie</label>
+                <input id="register-question2" name="question2" type="text" placeholder="Your Favorite Movie" required>
+                <button type="submit">Register</button>
+                <div class="toggle-button" onclick="toggleForms()">Already have an account? Login</div>
+                
+            </form>
+        
+        </div>
+    </div>
+    <script>
+        function toggleForms() {
+            const container = document.querySelector('.form-container');
+            const formContainer = document.getElementById('form-container');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            
+            container.style.left = container.style.left === '-100%' ? '0' : '-100%';
+            
+            if (container.style.left === '-100%') {
+                formContainer.style.height = `${registerForm.scrollHeight}px`;
+            } else {
+                formContainer.style.height = `${loginForm.scrollHeight}px`;
+            }
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        // Set initial height
+        window.onload = () => {
+            const formContainer = document.getElementById('form-container');
+            const loginForm = document.getElementById('login-form');
+            formContainer.style.height = `${loginForm.scrollHeight}px`;
+        };
+    </script>
+</body>
+</html>
