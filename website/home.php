@@ -513,7 +513,7 @@ footer ul li a:hover{
 <section class="categories">
     <div class="container categories__container">
         <div class="categories__left">
-            <h1>Tutorial Wala</h1>
+            <h1>Tutorial Wale</h1>
             <p>Most Interesting Online Learning Research Titles.<br>Continuing Education and Online Learning Effectiveness.<br>Difference Between Classroom.</p>
             <a href="#" class="btn">Learn More</a>
         </div>
